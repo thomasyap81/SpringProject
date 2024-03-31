@@ -1,4 +1,4 @@
-package com.in28minutes.learnspringframework;
+package com.in28minutes.learnspringframework.helloworld;
 
 import java.util.Arrays;
 
@@ -8,7 +8,8 @@ public class App02HelloWorldSpring {
 
 	public static void main(String[] args) {
 		//1:Launch a Spring Context
-		var context = new AnnotationConfigApplicationContext(HelloWorldConfiguration.class);
+		try(var context = new AnnotationConfigApplicationContext(HelloWorldConfiguration.class)){
+		
 		
 		//2:Configure the things that we want Spring (framework) to manage like "names" - @Configuration Class
 		//use configuration class to launch Spring context
@@ -28,8 +29,9 @@ public class App02HelloWorldSpring {
 		System.out.println(context.getBean("person5Qualifier"));
 		
 		//System.out.println
-//		Arrays.stream(context.getBeanDefinitionNames())
-//			.forEach(System.out::println);
+		//Arrays.stream(context.getBeanDefinitionNames())
+		//	.forEach(System.out::println);
+		}
 		
 	}
 
